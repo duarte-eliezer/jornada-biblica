@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jesus em Toda a Bíblia</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+
+  <main id="app">
+
+    <!-- TELA 1: INICIAL -->
+    <section id="tela-inicial" class="tela ativa">
+      <div class="cenario">
+        <div class="nuvem nuvem1"></div>
+        <div class="nuvem nuvem2"></div>
+        <div class="portao"></div>
+      </div>
+
+      <div class="conteudo">
+        <p class="subtitulo">UMA JORNADA PELA PALAVRA</p>
+        <h1>Jesus em Toda a Bíblia</h1>
+        <p>Descubra como toda a história bíblica aponta para Jesus.</p>
+        <button id="btn-comecar" class="botao-dourado">
+          COMEÇAR JOGO
+        </button>
+      </div>
+    </section>
+
+    <!-- TELA 2: PERGUNTAS -->
+    <section id="tela-perguntas" class="tela">
+      <div class="cabecalho">
+        <p id="progresso">Pergunta 1 de 5</p>
+        <p id="pontuacao">Pontos: 0</p>
+      </div>
+
+      <div class="cartao-pergunta">
+        <h2 id="pergunta">Pergunta aparecerá aqui</h2>
+        <div id="alternativas" class="alternativas"></div>
+        <p id="referencia"></p>
+      </div>
+
+      <button id="btn-proxima" class="botao-dourado" disabled>
+        PRÓXIMA
+      </button>
+    </section>
+
+    <!-- TELA 3: RESULTADO -->
+    <section id="tela-final" class="tela">
+      <div class="resultado">
+        <p class="subtitulo">SUA JORNADA</p>
+        <h1>Jornada concluída!</h1>
+        <p>Você terminou essa etapa da jornada bíblica.</p>
+
+        <div class="pontos-final">
+          <span id="pontos-finais">0</span>
+          <small>pontos conquistados</small>
+        </div>
+        <div id="resumo-final"></div>
+
+        <button id="btn-reiniciar" class="botao-dourado">
+          JOGAR NOVAMENTE
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

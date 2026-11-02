@@ -1,0 +1,378 @@
+
+/* =================================
+   CONFIGURAÇÕES GERAIS
+================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #c8eaff;
+  color: #263b52;
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.tela {
+  display: none;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 30px 20px;
+}
+
+.tela.ativa {
+  display: flex;
+  animation: aparecer 0.6s ease;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =================================
+   TELA INICIAL
+================================= */
+
+#tela-inicial {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(
+    180deg,
+    #75c9ff,
+    #c5eaff 65%,
+    #effaff
+  );
+}
+
+.conteudo {
+  position: relative;
+  z-index: 2;
+  max-width: 500px;
+  margin-top: 250px;
+}
+
+.subtitulo {
+  color: #9b701d;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+
+.conteudo h1,
+.resultado h1 {
+  font-size: clamp(32px, 8vw, 48px);
+  color: #24496b;
+  margin-bottom: 18px;
+}
+
+.conteudo p:not(.subtitulo),
+.resultado > p:not(.subtitulo) {
+  font-size: 17px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* =================================
+   CENÁRIO CELESTIAL
+================================= */
+
+.cenario {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.portao {
+  position: absolute;
+  top: 7%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 230px;
+  height: 300px;
+  border: 9px solid #b98019;
+  border-bottom: none;
+  border-radius: 120px 120px 0 0;
+  background: linear-gradient(
+    90deg,
+    #a86b12,
+    #ffe69a,
+    #d5a333,
+    #fff0b5
+  );
+  box-shadow:
+    0 0 30px #fff4b5,
+    0 0 70px #ffffff;
+}
+
+.portao::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 270px;
+  border: 5px solid #9c6a18;
+  border-bottom: none;
+  border-radius: 90px 90px 0 0;
+  background: linear-gradient(
+    90deg,
+    #d8a83d,
+    #fff0a8,
+    #c18a20
+  );
+}
+
+.nuvem {
+  position: absolute;
+  width: 170px;
+  height: 55px;
+  background: white;
+  border-radius: 50px;
+  opacity: 0.95;
+  filter: drop-shadow(0 8px 10px #8bb9d5);
+}
+
+.nuvem::before,
+.nuvem::after {
+  content: "";
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+
+.nuvem::before {
+  width: 75px;
+  height: 75px;
+  left: 25px;
+  top: -35px;
+}
+
+.nuvem::after {
+  width: 90px;
+  height: 90px;
+  right: 20px;
+  top: -45px;
+}
+
+.nuvem1 {
+  top: 30%;
+  left: -35px;
+}
+
+.nuvem2 {
+  top: 36%;
+  right: -55px;
+  transform: scale(1.2);
+}
+
+/* =================================
+   BOTÕES
+================================= */
+
+.botao-dourado {
+  border: none;
+  background: linear-gradient(
+    135deg,
+    #f9d978,
+    #c99128
+  );
+  color: #51370c;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 17px 30px;
+  border-radius: 40px;
+  box-shadow: 0 6px 15px #9b762d55;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.botao-dourado:active {
+  transform: scale(0.96);
+}
+
+.botao-dourado:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* =================================
+   TELA DE PERGUNTAS
+================================= */
+
+#tela-perguntas {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  background: linear-gradient(
+    180deg,
+    #8ed3ff,
+    #d8f0ff,
+    #f4fbff
+  );
+}
+
+.cabecalho {
+  width: 100%;
+  max-width: 550px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: #285477;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.cartao-pergunta {
+  width: 100%;
+  max-width: 550px;
+  padding: 28px 20px;
+  background: #ffffffed;
+  border: 2px solid #e9c56c;
+  border-radius: 22px;
+  box-shadow: 0 10px 30px #477da233;
+}
+
+.cartao-pergunta h2 {
+  font-size: 23px;
+  line-height: 1.4;
+  text-align: center;
+  margin-bottom: 25px;
+  color: #25496a;
+}
+
+.alternativas {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.alternativa {
+  width: 100%;
+  padding: 16px;
+  border: 2px solid #b8d8ec;
+  background: #f5fbff;
+  border-radius: 12px;
+  text-align: left;
+  color: #29465d;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.alternativa.selecionada {
+  background: #fff0c5;
+  border-color: #d6a53a;
+}
+
+.alternativa.correta {
+  background: #d8f6df;
+  border-color: #45a65b;
+}
+
+.alternativa.errada {
+  background: #ffe0e0;
+  border-color: #d95353;
+}
+
+.alternativa:disabled {
+  cursor: default;
+}
+
+#referencia {
+  margin-top: 18px;
+  text-align: center;
+  color: #58758c;
+  font-size: 14px;
+}
+
+/* =================================
+   TELA FINAL
+================================= */
+
+#tela-final {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(
+    180deg,
+    #75c9ff,
+    #c5eaff,
+    #ffffff
+  );
+}
+
+.resultado {
+  width: 100%;
+  max-width: 500px;
+  padding: 35px 20px;
+  background: #ffffffdf;
+  border: 2px solid #e9c56c;
+  border-radius: 25px;
+  box-shadow: 0 10px 35px #477da233;
+}
+
+.pontos-final {
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #a87517;
+}
+
+.pontos-final span {
+  font-size: 65px;
+  font-weight: bold;
+}
+
+.pontos-final small {
+  font-size: 16px;
+  color: #526e83;
+}
+
+/* =================================
+   TELAS PEQUENAS
+================================= */
+
+@media (max-width: 480px) {
+  .conteudo {
+    margin-top: 220px;
+  }
+
+  .portao {
+    width: 190px;
+    height: 250px;
+  }
+
+  .cartao-pergunta {
+    padding: 23px 15px;
+  }
+
+  .cartao-pergunta h2 {
+    font-size: 20px;
+  }
+
+  .alternativa {
+    font-size: 15px;
+  }
+}
